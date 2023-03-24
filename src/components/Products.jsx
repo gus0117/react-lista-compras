@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import EditProduct from './EditProduct'
 import Producto from './Producto'
 
 
@@ -17,14 +18,23 @@ const list = [{
 ]
 const Products = () => {
     const [products, setProducts] = useState(list)
+    const [editEnable, setEditEnable] = useState(false)
 
     const editProduct = (id) => {
         console.log("Actualizar producto " + id)
+        setEditEnable(true)
+    }
+
+    const removeProduct = (id) => {
+        console.log("Remove product ",id)
     }
 
 
-
   return (
+    <>
+    {
+        editEnable && <EditProduct />
+    }
     <section className='product-container'>
         <h1 className='title-1'>Mi lista de compras</h1>
         {
@@ -36,10 +46,12 @@ const Products = () => {
                     quantity={p.quantity}
                     price={p.price}
                     editProduct={editProduct}
+                    removeProduct={removeProduct}
                 />
             ))
         }
     </section>
+    </>
   )
 }
 

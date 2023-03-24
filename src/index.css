@@ -10,8 +10,8 @@ body {
 
 .container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .product-container {
   margin: 30px 20px;
@@ -74,4 +74,50 @@ button {
 .btn-trash:hover {
   background-color: #fff;
   color: red;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 10000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.form-group {
+  margin: 10px 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group label {
+  margin: auto 4px;
+}
+
+.input-quantity, .input-price {
+  max-width: 50px;
 }
